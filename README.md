@@ -1,6 +1,6 @@
 # 🔗 ShortLink - URL Shortener
 
-<div>
+<div align="center">
   <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React" />
   <img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white" alt="Node.js" />
   <img src="https://img.shields.io/badge/Express-000000?style=for-the-badge&logo=express&logoColor=white" alt="Express" />
@@ -34,7 +34,7 @@
 1. **Clone the repository**
 
 ```shell
-git clone https://github.com/yourusername/shortlink.git
+git clone https://github.com/RakeshBhuyan0101/url-shortner
 cd shortlink
 ```
 
@@ -98,14 +98,14 @@ Open your browser and navigate to `http://localhost:5173`
 | POST | `/api/auth/signin` | Login a user |
 | POST | `/api/auth/logout` | Logout a user |
 | POST | `/api/url` | Create a new short URL |
-| GET | `/api/url` | Get all URLs for the logged-in user |
+| GET | `/api/grtAllUrls` | Get all URLs for the logged-in user |
 | GET | `/:shortUrl` | Redirect to the original URL |
 
 ## 📸 Screenshots
 
 <div >
-  <img src="https://i.imgur.com/YourLoginScreenshot.png" alt="Login Page" width="400" />
-  <img src="https://i.imgur.com/YourDashboardScreenshot.png" alt="Dashboard" width="400" />
+  <img src="https://drive.google.com/file/d/142q-TmgNavKYq_K5OXAFw4Ci5qdOgm_G/view?usp=sharing" alt="Login Page" width="400" />
+  <img src="https://drive.google.com/file/d/1UBArM2TS8IOD-1_fJRTX2NYTXAZto2WP/view" alt="Dashboard" width="400" />
 </div>
 
 ## 🤝 Contributing
@@ -134,5 +134,5 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ---
 
 <p >
-  Made with ❤️ by <a href="https://github.com/yourusername">Your Name</a>
+  Made with ❤️ by <a href="https://github.com/yourusername">Rakesh Bhuyan</a>
 </p>
