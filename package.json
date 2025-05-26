@@ -1,0 +1,13 @@
+{
+  "name": "url-shortner",
+  "version": "1.0.0",
+  "description": "<div align=\"center\">   <img src=\"https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB\" alt=\"React\" />   <img src=\"https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white\" alt=\"Node.js\" />   <img src=\"https://img.shields.io/badge/Express-000000?style=for-the-badge&logo=express&logoColor=white\" alt=\"Express\" />   <img src=\"https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white\" alt=\"MongoDB\" />   <img src=\"https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white\" alt=\"Tailwind CSS\" /> </div>",
+  "main": "index.js",
+  "scripts": {
+    "build" : " npm install --prefix backend && npm install --prefix frontend && npm run build --prefix frontend ",
+    "start" : "npm run start --prefix backend"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

@@ -8,8 +8,11 @@ import { redirectFromShortUrl } from "./src/controllers/shortUrl.controller.js"
 import { errorHandler } from "./src/utils/errorHandler.js"
 import userRoute from "./src/routes/user.route.js"
 import { attachUser } from "./src/utils/attachUser.js"
+import path from "path"
 
 const app = express()
+const __dirname = path.resolve()
+
 dotenv.config("./.env")
 
 app.use(cookieParser())
@@ -25,6 +28,15 @@ app.use("/api/create" , short_rul )
 app.get ("/:id"  , redirectFromShortUrl )
 
 app.use(errorHandler)
+
+if (process.env.NODE_ENV === "development") {
+    
+    app.use(express.static(path.join(__dirname, "/frontend/dist")))
+
+    app.get("*", (req, res) => {
+      res.sendFile(path.join(__dirname, "/frontend/dist/index.html"))
+    })
+  }
 
 app.listen(3000 , async() => {
     await connectDB()
