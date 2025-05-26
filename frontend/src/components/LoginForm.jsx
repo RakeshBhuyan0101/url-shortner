@@ -11,6 +11,7 @@ const LoginForm = ({ state }) => {
     const navigate = useNavigate()
     const {user ,setUser} = useAuthStore()
     const handleSumbit = async () => {
+      if(!email || !password) return setError("Please enter email and password")
         try {
             setError("")
             setLoading(true)

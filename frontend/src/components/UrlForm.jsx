@@ -15,10 +15,17 @@ const UrlForm = () => {
 
   try {
     setError("")
-    const url = await createShortUrl(value , slug);
+    const shortUrl = await createShortUrl(value , slug);
     setValue("")
     setSlug("")
-    setUrls([url , ...urls])
+
+    const newUrl = {
+      _id: Date.now().toString(), // Temporary ID until refresh
+      full_url: value,
+      short_url: shortUrl.split('/').pop(), // Extract the slug from the full URL
+      clicks: 0
+    }
+    setUrls([newUrl , ...urls])
     
   } catch (error) {
       setError(error.message || "Internal Server Error")

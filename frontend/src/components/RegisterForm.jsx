@@ -5,9 +5,18 @@ const SignupForm = ({state}) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
 
   const handleSubmit = async () => {
-    const res = await registerUser(name , email , password)
+    if (!name || !email || !password) return setError("Please enter all fields")
+    try {
+      setError("")
+      const res = await registerUser(name , email , password)
+      
+    } catch (error) {
+      setError(error.message || "Internal Server Error")
+      console.log(error)
+    }
     
   };
 
@@ -15,7 +24,11 @@ const SignupForm = ({state}) => {
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
       <div className="bg-white p-6 rounded-xl shadow-md w-full max-w-sm space-y-4">
         <h2 className="text-2xl font-semibold text-center">Sign Up</h2>
-
+          {error && (
+            <div className="mb-4 p-3 bg-red-100 text-red-700 rounded-md">
+              {error}
+            </div>
+          )}
         <div>
           <label
             htmlFor="name"
