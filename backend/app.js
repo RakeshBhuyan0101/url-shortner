@@ -17,26 +17,30 @@ dotenv.config("./.env")
 
 app.use(cookieParser())
 app.use(cors({
-    origin: 'http://localhost:5173', // your React app
-    credentials: true // 👈 this allows cookies to be sent
+    origin: 'http://localhost:5173',
+    credentials: true
 }));
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 app.use(attachUser)
-app.use("/api/auth", userRoute )
-app.use("/api/create" , short_rul )
-app.get ("/:id"  , redirectFromShortUrl )
+
+// API routes
+app.use("/api/auth", userRoute)
+app.use("/api/create", short_rul)
+
+// Redirect route - must be after API routes
+app.get("/s/:id", redirectFromShortUrl)
 
 app.use(errorHandler)
 
 if (process.env.NODE_ENV === "development") {
-    
-    app.use(express.static(path.join(__dirname, "/frontend/dist")))
+    const frontendPath = path.join(__dirname, "..", "frontend", "dist")
+    app.use(express.static(frontendPath))
 
     app.get("*", (req, res) => {
-      res.sendFile(path.join(__dirname, "/frontend/dist/index.html"))
+      res.sendFile(path.join(frontendPath, "index.html"))
     })
-  }
+}
 
 app.listen(3000 , async() => {
     await connectDB()
